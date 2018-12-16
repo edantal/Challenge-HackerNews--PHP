@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hacker News</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.1/css/mdb.min.css">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon.ico') }}"/>
+  </head>
+
+  <body>
+    {# NAVBAR #}
+    <nav class="mb-4 navbar navbar-expand-lg navbar-dark unique-color-dark">
+      <a class="navbar-brand" href="/"><img src="{{ asset('images/hackernews.png') }}" height="30" alt=""></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/newest"><i class="fab fa-hacker-news-square"></i> New <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/show"><i class="fas fa-tasks"></i> Show</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ask"><i class="fas fa-question-circle"></i> Ask</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/jobs"><i class="fas fa-briefcase"></i> Jobs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://news.ycombinator.com/newcomments"><i class="fas fa-comment"></i> Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://news.ycombinator.com/submit"><i class="fas fa-envelope"></i> Submit</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+
+
+    {# MAIN #}
+    <main class="container">
+      {% block main %}{% endblock %}
+    </main>
+
+    {# FOOTER #}
+    <footer class="page-footer font-small unique-color-dark">
+      <div class="footer-copyright text-center py-3">&copy; 2018 Copyright:
+        <a href="https://news.ycombinator.com/news">Hacker News</a>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+/* GENERAL */
+body {
+  min-height: 10rem;
+  background-color: #e4e4e4;
+  font-family: 'Roboto', sans-serif;
+  color: #313131;
+}
+
+a {
+  outline: none !important;
+}
+
+/* NAVBAR */
+.navbar.navbar-dark .navbar-nav .nav-item:hover > .nav-link {
+  background-color: transparent;
+  color: #fc6604;
+}
+
+.nav-link i {
+  padding-right: 5px;
+}
+
+/* FOOTER */
+footer.page-footer {
+  padding-top: 0;
+}
+
+footer.page-footer .footer-copyright {
+  line-height: 1;
+}
+
+/* CONTENT */
+main {
+  padding-top: 10px;
+}
+
+.wrap {
+  display: flex;
+  background: #f6f6f6;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 7px 7px 30px -5px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+
+.wrap:hover {
+  background: #fc6604;
+  color: #ffffff;
+}
+
+.wrap:hover a {
+  color: #313131;
+}
+
+.score-wrap {
+  width: 15%;
+  margin: auto;
+  text-align: center;
+}
+.iconfont {
+  font-size: 2rem !important;
+  margin: .5rem;
+  padding-right: .5rem;
+}
+.score {
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+.author {
+  display: block;
+}
+.vcenter {
+  margin: auto;
+}
+
+.box-wrap {
+  width: 80%;
+  margin: auto;
+}
+.display-5 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: left;
+}
+.display-6 {
+  font-size: 1rem;
+  text-align: left;
+}
+
+small .btn-comments {
+  display: inline-block;
+}
+
+small .time {
+  display: inline-block;
+}
+
+
+@media (max-width: 640px) {
+  .wrap {
+    display: block;
+  }
+
+  .score-wrap {
+    width: 100%;
+    margin: auto;
+  }
+
+  .box-wrap {
+    width: 100%;
+    margin: auto;
+  }
+
+  .score-wrap {
+    margin-bottom: 1rem;
+  }
+  .score {
+    display: inline-block;
+    margin-right: .5rem;
+  }
+  .author {
+    display: inline-block;
+  }
+
+  .display-5 {
+    text-align: center;
+  }
+  .display-6 {
+    text-align: center;
+  }
+
+  .box-wrap small {
+    display: block;
+  }
+
+  small .btn-comments {
+    display: block;
+    width: 60%;
+    margin: 1rem auto;
+  }
+
+  .box-wrap small .time {
+    display: block;
+    margin: .5rem auto 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 320px) {
+  .btn-next,
+  .btn-prev {
+    width: 90%;
+    display: block;
+    margin: .5rem auto !important;
+  }
+}

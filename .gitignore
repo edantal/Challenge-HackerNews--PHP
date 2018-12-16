@@ -1,0 +1,9 @@
+/vendor
+/phpunit.xml
+/build
+/.idea
+.DS_Store
+/var/cache/*
+/var/logs/*
+!/var/cache/.gitignore
+!/var/logs/.gitignore

@@ -1,0 +1,66 @@
+{% macro tree(trees, treeLevel) %}
+  {% import _self as macroTree %}
+  {% if trees %}
+    {% for node in trees %}
+
+        {% if treeLevel == 0 %}
+        <div class="row mbr-justify-content-center panel-collapse" data-entry-id="{{ node.id }}">
+        {% else %}
+        <div class="row mbr-justify-content-center panel-collapse collapse in" data-entry-id="{{ node.id }}" style="margin-left: {{ treeLevel * 25 }}px" id="comment-{{ node.id }}">
+        {% endif %}
+          <div class="col">
+            <div class="wrap">
+
+              <div class="score-wrap">
+                {% if node.score %}
+                  <div class="score"><i class="fas fa-star fa-1x"></i> {{ node.score }}</div>
+                {% endif %}
+                <div class="author">By: {{ node.author }}</div>
+              </div>
+
+              <div class="box-wrap vcenter">
+                {% if node.title %}
+                  <h2 class="display-5">
+                    <a href="{{ node.url }}">{{ node.title}}</a>
+                  </h2>
+                {% endif %}
+                {% if node.text %}
+                  <p class="display-6">{{ node.text|raw }}</p>
+                {% endif %}
+
+                <small>
+                  <div class="text-uppercase">{{ node.timeDiffForHumans }}</div>
+                  
+                  {% if node.children|length > 1 %}
+                    {% set ids = '' %}    
+                    {% for child in node.children %}
+                      {% if loop.last %}
+                        {% set ids = ids ~ '#comment-' ~ child.id %}
+                      {% else %}
+                        {% set ids = ids ~ '#comment-' ~ child.id ~ ',' %}
+                      {% endif %}
+                    {% endfor %}
+                    <button class="btn btn-primary btn-xs" type="button" data-toggle="collapse" data-target="{{ ids }}">
+                      <i class="fa fa-plus"></i>
+                    </button>
+                  {% endif %}
+
+                </small>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {{ macroTree.tree(node.children, treeLevel + 1) }}
+    {% endfor %}
+  {% endif %}
+
+{% endmacro %}
+
+{% import 'tree-rows.html.twig' as macroTree %}
+{% extends "layout.html.twig" %}
+
+{% set treeLevel = 0 %}
+{% block main %}
+  {{ macroTree.tree(trees, treeLevel) }}
+{% endblock %}

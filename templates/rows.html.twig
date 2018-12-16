@@ -1,0 +1,50 @@
+
+{% extends "layout.html.twig" %}
+
+{% block main %}
+  {% if trees %}
+    {% for node in trees %}
+
+      <div class="row mbr-justify-content-center" data-entry-id="{{ node.id }}">
+        <div class="col">
+          <div class="wrap">
+            
+            <div class="score-wrap">
+              {% if node.score and node.itemType != 'job'%}
+                <div class="score"><i class="fas fa-star fa-1x"></i> {{ node.score }}</div>
+              {% endif %}
+              <div class="author">By: {{ node.author }}</div>
+            </div>
+            
+            <div class="box-wrap vcenter">
+              <h2 class="display-5">
+                <a href="{{ node.url }}">{{ node.title}}</a>
+              </h2>
+              {% if node.text %}
+                <p class="display-6">{{ node.text|raw }}</p>
+              {% endif %}
+              <small>
+                {% if node.countNodes > 1 %}
+                  <a href="/item/{{ node.id }}" class="btn btn-warning btn-circle btn-comments text-uppercase">
+                    <i class="fas fa-comment"></i> Comments: {{ node.countNodes - 1 }}
+                  </a>
+                {% endif %}
+                <div class="time text-uppercase">{{ node.timeDiffForHumans }}</div>
+              </small>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    {% endfor %}
+
+    <div class="row center">
+      {% if page > 1 %}
+      <a class="btn btn-primary btn-prev m-auto" href="/news?p={{ page - 1 }}">Previous Page</a>
+      {% endif %}
+      <a class="btn btn-primary btn-next m-auto" href="/news?p={{ page + 1 }}">Next Page</a>
+    </div>
+
+  {% endif %}
+{% endblock %}
